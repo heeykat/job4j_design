@@ -19,14 +19,20 @@ public class Generics {
         generics.printObject(third);
         System.out.println();
 
-/*      generics.printBoundedWildCard(first); // Ошибка компиляции */
+        /**
+         * Ошибка компиляции
+         * generics.printBoundedWildCard(first);
+         * */
         generics.printBoundedWildCard(second);
         generics.printBoundedWildCard(third);
         System.out.println();
 
         generics.printLowerBoundedWildCard(first);
         generics.printLowerBoundedWildCard(second);
-/*      generics.printLowerBoundedWildCard(third); // Ошибка компиляции */
+        /**
+         * Ошибка компиляции
+         * generics.printLowerBoundedWildCard(third);
+         */
     }
 
     public void printObject(List<?> list) {
