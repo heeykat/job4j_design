@@ -115,4 +115,13 @@ class SimpleLinkedListTest {
         list.add(null);
         assertThat(list.get(2)).isNull();
     }
+
+    @Test
+    void whenIteratorCalledOnEmptyListThenNoConcurrentModificationException() {
+        SimpleLinkedList<Integer> emptyList = new SimpleLinkedList<>();
+        Iterator<Integer> iterator = emptyList.iterator();
+        assertThat(iterator.hasNext()).isFalse();
+        emptyList.add(1);
+        assertThatThrownBy(iterator::next).isInstanceOf(ConcurrentModificationException.class);
+    }
 }
