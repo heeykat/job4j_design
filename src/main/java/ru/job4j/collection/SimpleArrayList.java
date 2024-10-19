@@ -61,7 +61,7 @@ public class SimpleArrayList<T> implements SimpleList<T> {
 
     @Override
     public Iterator<T> iterator() {
-        return new Iterator<T>() {
+        return new Iterator<>() {
             private int expectedModCount = modCount;
             private int index = 0;
 
@@ -73,7 +73,7 @@ public class SimpleArrayList<T> implements SimpleList<T> {
 
             @Override
             public T next() {
-                if (index + 1 > size) {
+                if (!hasNext()) {
                     throw new NoSuchElementException();
                 }
                 checkModification();
