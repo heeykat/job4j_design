@@ -57,6 +57,24 @@ class ForwardLinkedTest {
     }
 
     @Test
+    void whenAddFirstThenOk() {
+        assertThat(list.get(0)).isEqualTo(1);
+        list.addFirst(3);
+        assertThat(list).hasSize(3);
+        assertThat(list.get(0)).isEqualTo(3);
+        assertThat(list.get(1)).isEqualTo(1);
+        assertThat(list.get(2)).isEqualTo(2);
+    }
+
+    @Test
+    void whenAddFirstInEmptyListThenOk() {
+        ForwardLinked<Integer> list = new ForwardLinked<>();
+        assertThat(list).hasSize(0);
+        list.addFirst(3);
+        assertThat(list.get(0)).isEqualTo(3);
+    }
+
+    @Test
     void whenAddAndDeleteFirstThenOk() {
         assertThat(list).containsExactly(1, 2);
         list.add(3);
