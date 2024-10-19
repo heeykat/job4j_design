@@ -54,10 +54,10 @@ public class SimpleLinkedList<E> implements SimpleLinked<E> {
 
             @Override
             public E next() {
-                Node<E> rst = current;
                 if (!hasNext()) {
                     throw new NoSuchElementException();
                 }
+                Node<E> rst = current;
                 current = rst.next;
                 return rst.item;
             }
