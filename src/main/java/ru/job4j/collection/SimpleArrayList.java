@@ -76,7 +76,6 @@ public class SimpleArrayList<T> implements SimpleList<T> {
                 if (!hasNext()) {
                     throw new NoSuchElementException();
                 }
-                checkModification();
                 return container[index++];
             }
 
