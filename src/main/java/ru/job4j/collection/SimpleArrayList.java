@@ -67,7 +67,9 @@ public class SimpleArrayList<T> implements SimpleList<T> {
 
             @Override
             public boolean hasNext() {
-                checkModification();
+                if (expectedModCount != modCount) {
+                    throw new ConcurrentModificationException();
+                }
                 return index < size;
             }
 
@@ -77,12 +79,6 @@ public class SimpleArrayList<T> implements SimpleList<T> {
                     throw new NoSuchElementException();
                 }
                 return container[index++];
-            }
-
-            private void checkModification() {
-                if (expectedModCount != modCount) {
-                    throw new ConcurrentModificationException();
-                }
             }
         };
     }
