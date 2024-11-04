@@ -11,7 +11,7 @@ public class NonCollisionMap<K, V> implements SimpleMap<K, V> {
 
     @Override
     public boolean put(K key, V value) {
-        if ((float) count / capacity >= LOAD_FACTOR) {
+        if (count >= capacity * LOAD_FACTOR) {
             expand();
         }
         int index = getIndex(key);
@@ -76,7 +76,7 @@ public class NonCollisionMap<K, V> implements SimpleMap<K, V> {
     }
 
     private int hash(int hashCode) {
-        return hashCode == 0 ? 0 : hashCode ^ hashCode >>> 16;
+        return hashCode ^ hashCode >>> 16;
     }
 
     private int indexFor(int hash) {
