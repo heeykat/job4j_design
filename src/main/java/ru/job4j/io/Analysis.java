@@ -14,7 +14,7 @@ public class Analysis {
                     .map(line -> line.split(" "))
                     .toList();
             for (String[] line : lines) {
-                if (line[0].equals("400") || line[0].equals("500")) {
+                if ("400".equals(line[0]) || "500".equals(line[0])) {
                     if (wasAvailable) {
                         start = line[1];
                         wasAvailable = false;
