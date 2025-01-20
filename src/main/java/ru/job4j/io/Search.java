@@ -8,9 +8,30 @@ import java.util.List;
 import java.util.function.Predicate;
 
 public class Search {
+
+    public static List<String> listAllowExtensions = List.of(".js");
+
     public static void main(String[] args) throws IOException {
-        Path start = Paths.get(".");
-        search(start, path -> path.toFile().getName().endsWith(".js")).forEach(System.out::println);
+        Path start = Paths.get(args[0]);
+        pathValidation(start);
+        String extension = args[1];
+        extensionValidation(extension);
+        search(start, path -> path.toFile().getName().endsWith(extension)).forEach(System.out::println);
+    }
+
+    private static void pathValidation(Path start) {
+        if (!Files.exists(start)) {
+            throw new IllegalArgumentException(String.format("Not exist %s", start.toAbsolutePath()));
+        }
+        if (!Files.isDirectory(start)) {
+            throw new IllegalArgumentException(String.format("Not directory %s", start.toAbsolutePath()));
+        }
+    }
+
+    private static void extensionValidation(String extension) {
+        if (!listAllowExtensions.contains(extension)) {
+            throw new IllegalArgumentException(String.format("Not allowed extension %s", extension));
+        }
     }
 
     public static List<Path> search(Path root, Predicate<Path> condition) throws IOException {
