@@ -12,6 +12,9 @@ public class Search {
     public static List<String> listAllowExtensions = List.of(".js");
 
     public static void main(String[] args) throws IOException {
+        if (args.length < 2) {
+            throw new IllegalArgumentException("Error in the number of arguments");
+        }
         Path start = Paths.get(args[0]);
         pathValidation(start);
         String extension = args[1];
