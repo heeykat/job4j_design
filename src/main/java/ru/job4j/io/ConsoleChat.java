@@ -17,6 +17,7 @@ public class ConsoleChat {
 
     public void run() {
         List<String> log = new ArrayList<>();
+        List<String> list = readPhrases();
         String conditions = String.format("""
                 - при вводе текста программа направляет ответ
                 - при вводе '%s' программа перестает отвечать
@@ -53,7 +54,6 @@ public class ConsoleChat {
                     break;
                 default:
                     log.add(input);
-                    List<String> list = readPhrases();
                     int index = new Random().nextInt(list.size());
                     String answer = list.get(index);
                     log.add(answer);
