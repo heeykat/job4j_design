@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<root>
+    <name>Kartoshka</name>
+    <sex>true</sex>
+    <age>7</age>
+    <ownersContact>
+        <zipCode>11</zipCode>
+        <phone>111111</phone>
+    </ownersContact>
+    <statuses>
+        <status>Eats</status>
+        <status>Vomits</status>
+    </statuses>
+</root>
