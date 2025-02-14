@@ -18,6 +18,26 @@ public class Cat {
         this.statuses = statuses;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public boolean isSex() {
+        return sex;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public Contact getOwnersContact() {
+        return ownersContact;
+    }
+
+    public String[] getStatuses() {
+        return statuses;
+    }
+
     @Override
     public String toString() {
         return "Cat{"
